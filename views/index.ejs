@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="clipboard.js"></script>
+    </head>
+    <body>
+        <form action="" method="POST"> 
+        <input type="text" placeholder="კინოს URL" name="url">
+        <button type="submit">მიღება</button>
+    </form>
+    <h2>ინფორმაცია</h2>
+    <ul>
+        <li><span id="a"><%= name %></span></li>
+        <li><span id="b"><%= photo %></span></li>
+        <li><span id="c"><%= des %></span></li>
+        <li><span id="d"><%= videoSD%></span></li>
+        <li><span id="e"><%= videoHD %></span></li>
+        <li><span id="f"><%= imdb %></span></li>
+        
+ 
+        <script>
+ 
+        const span = document.querySelector("#a");
+        const span1 = document.querySelector("#b");
+        const span2 = document.querySelector("#c");
+        const span4 = document.querySelector("#d");
+        const span5 = document.querySelector("#e");
+        const span6 = document.querySelector("#f");
+
+             
+span.onclick = function() {
+  document.execCommand("copy");
+}
+
+span.addEventListener("copy", function(event) {
+  event.preventDefault();
+  if (event.clipboardData) {
+    event.clipboardData.setData("text/plain", span.textContent);
+    console.log(event.clipboardData.getData("text"))
+  }
+});
+    
+span1.onclick = function() {
+  document.execCommand("copy");
+}
+
+span1.addEventListener("copy", function(event) {
+  event.preventDefault();
+  if (event.clipboardData) {
+    event.clipboardData.setData("text/plain", span.textContent);
+    console.log(event.clipboardData.getData("text"))
+  }
+});
+    
+    
+    
+    
+    </script>
+    </ul>
+    </body>
+</html>

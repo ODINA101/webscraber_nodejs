@@ -21,39 +21,25 @@
  
         <script>
  
-        const span = document.querySelector("#a");
-        const span1 = document.querySelector("#b");
-        const span2 = document.querySelector("#c");
-        const span4 = document.querySelector("#d");
-        const span5 = document.querySelector("#e");
-        const span6 = document.querySelector("#f");
-
-             
-span.onclick = function() {
+        var span = document.querySelectorAll("span");
+     
+for(i=0;i<span.length;i++) {
+  console.log(span[i].innerHTML);
+span[i].onclick = function() {
   document.execCommand("copy");
 }
+let txt = span[i];
 
-span.addEventListener("copy", function(event) {
+span[i].addEventListener("copy", function(event) {
+  
   event.preventDefault();
   if (event.clipboardData) {
-    event.clipboardData.setData("text/plain", span.textContent);
+    event.clipboardData.setData("text/plain", txt.innerHTML);
     console.log(event.clipboardData.getData("text"))
   }
 });
-    
-span1.onclick = function() {
-  document.execCommand("copy");
-}
-
-span1.addEventListener("copy", function(event) {
-  event.preventDefault();
-  if (event.clipboardData) {
-    event.clipboardData.setData("text/plain", span.textContent);
-    console.log(event.clipboardData.getData("text"))
-  }
-});
-    
-    
+}  
+ 
     
     
     </script>
